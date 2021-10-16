@@ -62,6 +62,13 @@ namespace LabBack
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "BookByRelasedate",
+                    pattern: "books/relased/{year}/{month}",
+                    defaults: new { controller = "Books", action = "ByRelaseDate" }
+                    );
+
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();

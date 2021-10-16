@@ -15,6 +15,22 @@ namespace LabBack.Controllers
             var firstBook = new Book() { Name = "English Dictionary" };
             return View(firstBook);
         }
+        public IActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+            {
+                pageIndex = 1;
+            }
+            if(String.IsNullOrEmpty(sortBy))
+            {
+                sortBy = "Name";
+            }
+            return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
+        }
 
+        public IActionResult ByRelaseDate( int year, int month)
+        {
+            return Content(year + "/" + month);
+        }
     }
 }
