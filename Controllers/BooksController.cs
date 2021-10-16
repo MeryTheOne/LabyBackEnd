@@ -27,7 +27,7 @@ namespace LabBack.Controllers
             }
             return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
         }
-
+        [Route("Books/relased/{year:regex(^\\Dd{{4}})}/{month:range(1,12)}")]
         public IActionResult ByRelaseDate( int year, int month)
         {
             return Content(year + "/" + month);
